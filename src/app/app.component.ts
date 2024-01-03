@@ -29,6 +29,7 @@ export class AppComponent implements OnInit, OnDestroy {
         this.loadedPosts = posts;
       },
       (error) => {
+        // this.isFetching = false;
         this.error = error.message;
       }
     );
@@ -48,6 +49,7 @@ export class AppComponent implements OnInit, OnDestroy {
         this.loadedPosts = posts;
       },
       (error) => {
+        // this.isFetching = false;
         this.error = error.message;
       }
     );
@@ -58,6 +60,11 @@ export class AppComponent implements OnInit, OnDestroy {
     this.postsServcice.deletePosts().subscribe(() => {
       this.loadedPosts = [];
     });
+  }
+
+  onHandleError(){
+    this.error = null;
+    this.isFetching = false;
   }
 
   // private fetchPosts() {
